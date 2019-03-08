@@ -1,0 +1,15 @@
+.header {
+  // Visual
+  background-color: #364253;
+
+  // Box Model
+  height: 250px;
+  &__nav {
+    // Visual
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    // Box Model
+    display: flex;
+    justify-content: space-between;
+  }
+}
