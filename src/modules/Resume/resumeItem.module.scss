@@ -1,0 +1,66 @@
+.resume {
+  // Box Model
+  width: 30%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+
+  // Visual
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  &__icon {
+    // Visual
+    background-color: #364253;
+    border-radius: 100%;
+
+    // Box Model
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    // Typography
+    text-align: center;
+    line-height: 80px;
+
+    &-svg {
+      // Box Model
+      margin: 0 auto;
+      height: 56px;
+      width: 56px;
+
+      // Typography
+      color: #fff;
+    }
+  }
+
+  &__content {
+    // Typography
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #364253;
+    font-size: 16px;
+
+    // Box Model
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+
+    h3 {
+      // Typography
+      text-transform: uppercase;
+      text-align: right;
+      font-weight: 700;
+      font-size: 24px;
+
+      // Visual
+      opacity: 0.7;
+    }
+
+    span {
+      // Typography
+      text-align: right;
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+}
