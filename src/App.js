@@ -6,7 +6,7 @@ import Header from "./modules/Header";
 import "./App.scss";
 
 import Api from "./utils/api";
-import HomeContainer from "./modules/Home";
+import HomeContainer from "./pages/Home/";
 
 class App extends Component {
   render() {

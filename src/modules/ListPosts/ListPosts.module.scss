@@ -1,0 +1,45 @@
+.list-posts {
+  &__info {
+    a {
+      // Box Model
+      display: block;
+      margin-bottom: 10px;
+
+      // Typography
+      text-decoration: none;
+      color: #364253;
+      font-weight: 700;
+
+      &:hover {
+        // Typography
+        color: #1d84b5;
+      }
+    }
+
+    &-author {
+      // Typography
+      font-size: 12px;
+      font-weight: 100;
+      font-style: italic;
+    }
+  }
+
+  &__category {
+    a {
+      // Box Model
+      display: block;
+
+      // Typography
+      text-decoration: none;
+      color: #364253;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+
+      &:hover {
+        // Typography
+        color: #1d84b5;
+      }
+    }
+  }
+}

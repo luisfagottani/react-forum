@@ -8,6 +8,11 @@
   // Visual
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
+  &--red,
+  &--blue {
+    // notodo
+  }
+
   &__icon {
     // Visual
     background-color: #364253;
@@ -22,6 +27,16 @@
     // Typography
     text-align: center;
     line-height: 80px;
+
+    .resume--blue & {
+      // Visual
+      background-color: #1d84b5;
+    }
+
+    .resume--red & {
+      // Visual
+      background-color: #ff5a5f;
+    }
 
     &-svg {
       // Box Model

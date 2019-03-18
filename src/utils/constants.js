@@ -1,0 +1,8 @@
+export const ICONS = {
+  TOPICS: "TOPICS",
+  POSTS: "POSTS",
+  REPLIES: "REPLIES",
+  BALLOON: "BALLOON",
+  BALLOONS: "BALLOONS",
+  TIME: "TIME"
+};
