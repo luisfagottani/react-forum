@@ -1,14 +1,11 @@
 import React from "react";
 
 import { ICONS } from "./constants";
-import { TiPin } from "react-icons/ti";
-import {
-  IoIosMegaphone,
-  IoMdTime,
-  IoIosChatbubbles,
-  IoIosBulb
-} from "react-icons/io";
+import { TiPin, TiThermometer } from "react-icons/ti";
+import { IoIosMegaphone, IoIosChatbubbles, IoIosBulb } from "react-icons/io";
 import { GiCampfire } from "react-icons/gi";
+
+import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 
 export const IconFactories = ({ icon, ...rest }) => {
   switch (icon) {
@@ -28,7 +25,13 @@ export const IconFactories = ({ icon, ...rest }) => {
       return <IoIosChatbubbles {...rest} />;
 
     case ICONS.TIME:
-      return <IoMdTime {...rest} />;
+      return <TiThermometer {...rest} />;
+
+    case ICONS.THUMBS_UP:
+      return <FaRegThumbsUp {...rest} />;
+
+    case ICONS.THUMBS_DOWN:
+      return <FaRegThumbsDown {...rest} />;
     default:
       return null;
   }

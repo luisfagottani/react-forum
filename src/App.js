@@ -1,14 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleInitialData } from "redux/actions/shared";
 import LoadingBar from "react-redux-loading";
 import Header from "./modules/Header";
 
 import "./App.scss";
 
-import Api from "./utils/api";
 import HomeContainer from "./pages/Home/";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
   render() {
     return (
       <Router>
@@ -24,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null)(App);

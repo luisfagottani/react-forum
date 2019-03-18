@@ -22,12 +22,12 @@ export const getAllCategories = () =>
 export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.posts);
+    .then(data => data);
 
 export const getPost = postId =>
   fetch(`${api}/post/${postId}`, { headers })
     .then(res => res.json())
-    .then(data => data.posts);
+    .then(data => data);
 
 export const getPostsByCategories = categoryName =>
   fetch(`${api}/${categoryName}/posts`, { headers })
@@ -44,6 +44,15 @@ export const getComment = commentId => {
   fetch(`${api}/comments/${commentId}`, { headers })
     .then(res => res.json())
     .then(data => data.comment);
+};
+
+export const getInitialData = () => {
+  return Promise.all([getAllCategories(), getAllPosts()]).then(
+    ([categories, posts]) => ({
+      categories,
+      posts
+    })
+  );
 };
 
 // export const update = (book, shelf) =>

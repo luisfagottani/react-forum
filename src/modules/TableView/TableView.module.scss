@@ -60,10 +60,10 @@
       // Typography
       text-align: right;
     }
-
-    svg {
-      width: 25px;
-      height: 25px;
-    }
+  }
+  &__icon {
+    // Box Model
+    width: 30px;
+    height: 30px;
   }
 }

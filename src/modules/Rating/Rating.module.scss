@@ -1,0 +1,49 @@
+.rating {
+  // Box Model
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__votes {
+    // Typography
+    font-size: 16px;
+    font-weight: bold;
+
+    // Box Model
+    margin-right: 10px;
+  }
+
+  &__icon {
+    // Box Model
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+
+    // Visual
+    transition: all 0.3s ease;
+
+    &:hover {
+      // Visual
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    &:active {
+      // Visual
+      transition: all 0.1s ease;
+      transform: scale(1.2);
+    }
+    &--up {
+      &:hover {
+        // Typography
+        color: green;
+      }
+    }
+    &--down {
+      &:hover {
+        // Typography
+        color: red;
+      }
+    }
+  }
+}

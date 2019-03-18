@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ResumeContainer from "modules/Resume";
 import ListPosts from "modules/ListPosts/ListPosts";
 
@@ -14,5 +15,7 @@ class HomeContainer extends Component {
     );
   }
 }
-
-export default HomeContainer;
+const mapStateToProps = state => ({
+  listsPosts: null
+});
+export default connect(mapStateToProps)(HomeContainer);

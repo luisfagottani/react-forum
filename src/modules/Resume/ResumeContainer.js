@@ -5,7 +5,7 @@ import { ICONS } from "utils/constants";
 
 const ResumeContainer = () => {
   return (
-    <section class={style["resume-container"]}>
+    <section className={style["resume-container"]}>
       <ResumeItem icon={ICONS.POSTS} title={"Posts"} number={33} />
       <ResumeItem
         icon={ICONS.TOPICS}

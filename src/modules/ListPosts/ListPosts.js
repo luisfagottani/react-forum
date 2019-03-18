@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import TableView from "modules/TableView";
 import { ICONS } from "utils/constants.js";
 import style from "./ListPosts.module.scss";
+import Rating from "modules/Rating";
 
 const ListPosts = () => {
   return (
@@ -52,7 +53,7 @@ const ListPosts = () => {
         </TableView.Column>
 
         <TableView.Column widthCol="12" alignContent={"right"}>
-          135 VOTES
+          <Rating votes={35} />
         </TableView.Column>
       </TableView.Row>
     </TableView>

@@ -24,7 +24,10 @@ TableView.Column = ({ children, icon, widthCol, alignContent }) => {
   });
   return (
     <li style={{ width: widthCol + "%" }} className={classNames}>
-      {icon && <IconFactories icon={icon} />} {children && children}
+      {icon && (
+        <IconFactories icon={icon} className={style["table-view__icon"]} />
+      )}
+      {children && children}
     </li>
   );
 };
