@@ -6,7 +6,8 @@ import { ICONS } from "utils/constants.js";
 import style from "./ListPosts.module.scss";
 import Rating from "modules/Rating";
 
-const ListPosts = () => {
+const ListPosts = ({ posts }) => {
+  console.log(posts);
   return (
     <TableView>
       <TableView.Row isHeader={true}>
@@ -29,33 +30,36 @@ const ListPosts = () => {
           icon={ICONS.TIME}
         />
       </TableView.Row>
-      <TableView.Row>
-        <TableView.Column widthCol="40">
-          <h3 className={style["list-posts__info"]}>
-            <Link to="/help/" title="Central de ajuda">
-              How i make the product work on react?!
-            </Link>
-            <span className={style["list-posts__info-author"]}>
-              Started by: luisagottani35
-            </span>
-          </h3>
-        </TableView.Column>
-        <TableView.Column widthCol="12" alignContent={"center"}>
-          <h3 className={style["list-posts__category"]}>
-            <Link to="/help/" title="Central de ajuda">
-              Category
-            </Link>
-          </h3>
-        </TableView.Column>
+      {posts &&
+        Object.values(posts).map(post => (
+          <TableView.Row key={post.id}>
+            <TableView.Column widthCol="40">
+              <h3 className={style["list-posts__info"]}>
+                <Link to="/help/" title="Central de ajuda">
+                  {post.title}
+                </Link>
+                <span className={style["list-posts__info-author"]}>
+                  Started by: {post.author}
+                </span>
+              </h3>
+            </TableView.Column>
+            <TableView.Column widthCol="12" alignContent={"center"}>
+              <h3 className={style["list-posts__category"]}>
+                <Link to="/help/" title="Central de ajuda">
+                  {post.category}
+                </Link>
+              </h3>
+            </TableView.Column>
 
-        <TableView.Column widthCol="12" alignContent={"center"}>
-          <p>0</p>
-        </TableView.Column>
+            <TableView.Column widthCol="12" alignContent={"center"}>
+              <p>{post.commentCount}</p>
+            </TableView.Column>
 
-        <TableView.Column widthCol="12" alignContent={"right"}>
-          <Rating votes={35} />
-        </TableView.Column>
-      </TableView.Row>
+            <TableView.Column widthCol="12" alignContent={"right"}>
+              <Rating votes={post.voteScore} />
+            </TableView.Column>
+          </TableView.Row>
+        ))}
     </TableView>
   );
 };

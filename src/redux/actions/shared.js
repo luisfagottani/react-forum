@@ -7,7 +7,6 @@ export function handleInitialData() {
   return dispatch => {
     dispatch(showLoading());
     return getInitialData().then(({ categories, posts }) => {
-      console.log(posts);
       dispatch(setCategories(categories));
       dispatch(setPosts(posts));
       dispatch(hideLoading());
