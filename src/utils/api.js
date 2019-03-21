@@ -22,7 +22,12 @@ export const getAllCategories = () =>
 export const getAllPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data);
+    .then(data =>
+      Object.values(data).reduce((totalValue, currentData) => {
+        totalValue[currentData.id] = currentData;
+        return totalValue;
+      }, {})
+    );
 
 export const getPost = postId =>
   fetch(`${api}/post/${postId}`, { headers })
@@ -44,6 +49,14 @@ export const getComment = commentId => {
   fetch(`${api}/comments/${commentId}`, { headers })
     .then(res => res.json())
     .then(data => data.comment);
+};
+
+export const votePost = (id, voteType) => {
+  fetch(`${api}/post/${id}`, {
+    headers,
+    method: "POST",
+    body: JSON.stringify(voteType)
+  }).then(res => res.json());
 };
 
 export const getInitialData = () => {
