@@ -8,16 +8,20 @@ export default function posts(state = {}, action) {
         ...action.posts
       };
     case ACTIONS.UP_VOTE:
-      state[action.id].voteScore++;
       return {
         ...state,
-        ...{ ...state, [action.id]: state[action.id] }
+        [action.id]: {
+          ...state[action.id],
+          voteScore: state[action.id].voteScore + 1
+        }
       };
     case ACTIONS.DOWN_VOTE:
-      state[action.id].voteScore--;
       return {
         ...state,
-        ...{ ...state, [action.id]: state[action.id] }
+        [action.id]: {
+          ...state[action.id],
+          voteScore: state[action.id].voteScore - 1
+        }
       };
     default:
       return state;

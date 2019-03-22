@@ -1,4 +1,5 @@
 import { ACTIONS } from "utils/constants";
+import { votePost } from "utils/api";
 
 export const setPosts = posts => ({
   type: ACTIONS.SET_POSTS,
@@ -19,9 +20,9 @@ export function handleVotePost(id, type) {
   return dispatch => {
     if (type === ACTIONS.DOWN_VOTE) {
       dispatch(downVote(id));
-    } else {
-      dispatch(upVote(id));
+      return votePost(id, "downVote").catch(() => dispatch(upVote(id)));
     }
-    // BATER API
+    dispatch(upVote(id));
+    return votePost(id, "upVote").catch(() => dispatch(downVote(id)));
   };
 }

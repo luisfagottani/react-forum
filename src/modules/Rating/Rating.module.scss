@@ -4,6 +4,11 @@
   justify-content: flex-end;
   align-items: center;
 
+  &__relative {
+    // Position
+    position: relative;
+  }
+
   &__votes {
     // Typography
     font-size: 16px;
@@ -11,6 +16,11 @@
 
     // Box Model
     margin-right: 10px;
+    pointer-events: none;
+
+    &--red {
+      color: red;
+    }
   }
 
   &__icon {
@@ -45,5 +55,58 @@
         color: red;
       }
     }
+
+    &-ghost {
+      // Position
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+
+      // Visual
+      opacity: 0;
+      visibility: hidden;
+
+      &:hover {
+        pointer-events: none;
+      }
+
+      &--up {
+        animation: slideTop ease 0.5s;
+        color: green;
+      }
+      &--down {
+        animation: slideDown ease 0.5s;
+        color: red;
+      }
+    }
+  }
+}
+
+@keyframes slideTop {
+  25% {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    top: -20px;
+  }
+}
+
+@keyframes slideDown {
+  25% {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    top: 20px;
   }
 }

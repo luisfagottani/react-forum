@@ -1,0 +1,67 @@
+.breadcrumb {
+  // Box Model
+  padding: 1.5rem;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+
+  // Visual
+  background: #f1f1f1;
+
+  svg {
+    // Box Model
+    width: 25px;
+    height: 25px;
+  }
+
+  &__item {
+    // Box Model
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+
+    a {
+      // Tyography
+      text-decoration: none;
+      color: #364253;
+      text-transform: capitalize;
+
+      &:hover {
+        // Typography
+        color: #1d84b5;
+      }
+    }
+
+    &:after {
+      // Box Model
+      margin-left: 10px;
+
+      // Typography
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: bold;
+
+      // Visual
+      content: "›";
+    }
+
+    &:last-child {
+      &:after {
+        // Box Model
+        display: none;
+      }
+    }
+
+    &--active {
+      a {
+        // Typography
+        pointer-events: none;
+        color: #6b717e;
+      }
+
+      &:hover {
+        color: #6b717e;
+      }
+    }
+  }
+}

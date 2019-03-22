@@ -11,6 +11,7 @@ if (!token)
 
 const headers = {
   Accept: "application/json",
+  "Content-Type": "application/json",
   Authorization: token
 };
 
@@ -30,34 +31,16 @@ export const getAllPosts = () =>
     );
 
 export const getPost = postId =>
-  fetch(`${api}/post/${postId}`, { headers })
-    .then(res => res.json())
-    .then(data => data);
+  fetch(`${api}/posts/${postId}`, {
+    headers
+  }).then(data => console.log(data));
 
-export const getPostsByCategories = categoryName =>
-  fetch(`${api}/${categoryName}/posts`, { headers })
-    .then(res => res.json())
-    .then(data => data.posts);
-
-export const getCommentsByPosts = postId => {
-  fetch(`${api}/posts/${postId}/comments`, { headers })
-    .then(res => res.json())
-    .then(data => data.comments);
-};
-
-export const getComment = commentId => {
-  fetch(`${api}/comments/${commentId}`, { headers })
-    .then(res => res.json())
-    .then(data => data.comment);
-};
-
-export const votePost = (id, voteType) => {
-  fetch(`${api}/post/${id}`, {
+export const votePost = (id, option) =>
+  fetch(`${api}/posts/${id}`, {
     headers,
     method: "POST",
-    body: JSON.stringify(voteType)
+    body: JSON.stringify({ option })
   }).then(res => res.json());
-};
 
 export const getInitialData = () => {
   return Promise.all([getAllCategories(), getAllPosts()]).then(

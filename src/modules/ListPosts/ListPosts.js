@@ -7,7 +7,6 @@ import style from "./ListPosts.module.scss";
 import Rating from "modules/Rating";
 
 const ListPosts = ({ posts }) => {
-  console.log(posts);
   return (
     <TableView>
       <TableView.Row isHeader={true}>
@@ -35,7 +34,11 @@ const ListPosts = ({ posts }) => {
           <TableView.Row key={post.id}>
             <TableView.Column widthCol="40">
               <h3 className={style["list-posts__info"]}>
-                <Link to="/help/" title="Central de ajuda">
+                <Link
+                  to={`/${post.category}/${post.id}`}
+                  params={{ id: post.id }}
+                  title="Central de ajuda"
+                >
                   {post.title}
                 </Link>
                 <span className={style["list-posts__info-author"]}>
@@ -45,7 +48,7 @@ const ListPosts = ({ posts }) => {
             </TableView.Column>
             <TableView.Column widthCol="12" alignContent={"center"}>
               <h3 className={style["list-posts__category"]}>
-                <Link to="/help/" title="Central de ajuda">
+                <Link to={`/${post.category}`} title="Central de ajuda">
                   {post.category}
                 </Link>
               </h3>
@@ -56,7 +59,7 @@ const ListPosts = ({ posts }) => {
             </TableView.Column>
 
             <TableView.Column widthCol="12" alignContent={"right"}>
-              <Rating votes={post.voteScore} />
+              <Rating votes={post.voteScore} id={post.id} />
             </TableView.Column>
           </TableView.Row>
         ))}

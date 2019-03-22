@@ -1,0 +1,83 @@
+.post {
+  // Box Model
+  margin-bottom: 40px;
+
+  // Visual
+  background: #f1f1f1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  // Typography
+  color: #364253;
+
+  &__header {
+    // Box Model
+    padding: 25px 20px;
+    border-bottom: 1px solid #ddd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(221, 221, 221);
+    h1 {
+      // Box Model
+      margin: 0;
+
+      // Typography
+      font-size: 22px;
+      font-weight: 700;
+      color: #364253;
+    }
+  }
+
+  &__info {
+    // Box Model
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+
+    // Visual
+    border-bottom: 1px solid #ddd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(221, 221, 221);
+
+    &-date {
+      // Box Model
+      display: flex;
+      align-items: center;
+
+      // Tyography
+      font-weight: 400;
+      line-height: 1.7;
+      color: #6b717e;
+      font-size: 14px;
+
+      svg {
+        // Box Model
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+      }
+    }
+
+    &-rating {
+    }
+  }
+
+  &__content {
+    // Visual
+    background-color: #fff;
+
+    // Box Model
+    padding: 25px 20px;
+
+    p {
+      // Box Model
+      margin: 0;
+
+      // Typography
+      font-weight: 400;
+      line-height: 1.7;
+      color: #6b717e;
+    }
+  }
+}

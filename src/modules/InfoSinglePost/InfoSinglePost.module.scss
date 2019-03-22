@@ -1,0 +1,19 @@
+.info {
+  // Box Model
+  padding: 1.5rem;
+  margin-bottom: 40px;
+  border-left: 3px solid #1d84b5;
+
+  // Visual
+  background: #f1f1f1;
+
+  p {
+    // Typography
+    font-weight: 400;
+    line-height: 1.7;
+    color: #6b717e;
+
+    // Box Model
+    margin: 0;
+  }
+}
