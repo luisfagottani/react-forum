@@ -3,7 +3,7 @@ import style from "./Comments.module.scss";
 import Rating from "modules/Rating";
 import { MdAlarm } from "react-icons/md";
 import { dateToFormat } from "utils/helpers";
-import { VOTE_TYPE } from "utils/constants";
+import { TYPE_CONTEXT } from "utils/constants";
 import Profile from "modules/Profile";
 
 const Comments = ({ comments }) => {
@@ -22,7 +22,7 @@ const Comments = ({ comments }) => {
               <div className={style["comments__info-rating"]}>
                 <Rating
                   id={comment.id}
-                  type={VOTE_TYPE.COMMENT}
+                  type={TYPE_CONTEXT.COMMENT}
                   votes={comment.voteScore}
                   parentId={comment.parentId}
                 />

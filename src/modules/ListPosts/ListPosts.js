@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import TableView from "modules/TableView";
-import { ICONS, VOTE_TYPE } from "utils/constants.js";
+import { ICONS, TYPE_CONTEXT } from "utils/constants.js";
 import style from "./ListPosts.module.scss";
 import Rating from "modules/Rating";
 
@@ -61,7 +61,7 @@ const ListPosts = ({ posts }) => {
             <TableView.Column widthCol="12" alignContent={"right"}>
               <Rating
                 votes={post.voteScore}
-                type={VOTE_TYPE.POST}
+                type={TYPE_CONTEXT.POST}
                 id={post.id}
               />
             </TableView.Column>

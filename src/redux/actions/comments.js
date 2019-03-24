@@ -7,8 +7,17 @@ import {
 } from "utils/api"
 
 import {
-  voteComment
+  voteComment,
+  addComment
 } from "utils/api";
+
+export const addCommentToPost = (comment) => ({
+  type: ACTIONS.ADD_COMMENT,
+  payload: {
+    postId: comment.parentId,
+    comment
+  }
+})
 
 export const setCommentsPost = (comments, id) => ({
   type: ACTIONS.SET_COMMENTS_POST,
@@ -54,4 +63,13 @@ export function handleVoteComment(id, parentId, type) {
     dispatch(upVote(id, parentId));
     return voteComment(id, "upVote").catch(() => dispatch(downVote(id, parentId)));
   };
+}
+
+export function handleAddComment(comment) {
+  console.log(comment)
+  return dispatch => {
+    return addComment({
+      comment
+    }).then(comment => console.log(comment))
+  }
 }

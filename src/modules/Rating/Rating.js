@@ -5,7 +5,7 @@ import { IconFactories } from "utils/factories";
 import { ICONS } from "utils/constants";
 import { handleVotePost } from "redux/actions/posts";
 import { handleVoteComment } from "redux/actions/comments";
-import { ACTIONS, VOTE_TYPE } from "utils/constants";
+import { ACTIONS, TYPE_CONTEXT } from "utils/constants";
 import classnames from "classnames";
 
 class Rating extends React.PureComponent {
@@ -62,7 +62,7 @@ class Rating extends React.PureComponent {
             className={`${style["rating__icon"]} ${style["rating__icon--up"]}`}
             icon={ICONS.THUMBS_UP}
             onClick={() => {
-              type === VOTE_TYPE.POST
+              type === TYPE_CONTEXT.POST
                 ? handleClickVote(id, ACTIONS.UP_VOTE)
                 : handleClickVoteComment(
                     id,
@@ -92,7 +92,7 @@ class Rating extends React.PureComponent {
             }`}
             icon={ICONS.THUMBS_DOWN}
             onClick={() => {
-              type === VOTE_TYPE.POST
+              type === TYPE_CONTEXT.POST
                 ? handleClickVote(id, ACTIONS.DOWN_VOTE)
                 : handleClickVoteComment(
                     id,

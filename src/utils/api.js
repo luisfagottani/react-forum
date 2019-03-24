@@ -15,6 +15,10 @@ const headers = {
   Authorization: token
 };
 
+function generateUID() {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+
 export const getAllCategories = () =>
   fetch(`${api}/categories`, {
     headers
@@ -52,6 +56,28 @@ export const voteComment = (id, option) =>
       option
     })
   }).then(res => res.json());
+
+
+export const addComment = (data) => {
+  const {
+    comment
+  } = data;
+
+  return fetch(`${api}/comments`, {
+    headers,
+    method: "POST",
+    body: JSON.stringify({
+      id: generateUID(),
+      timestamp: comment.timestamp,
+      body: comment.body,
+      author: comment.author,
+      parentId: comment.parentId,
+      voteScore: 0
+    })
+  }).then(res => res.json());
+}
+
+
 
 export const getCommentsByPost = postId =>
   fetch(`${api}/posts/${postId}/comments`, {
