@@ -4,7 +4,8 @@ import style from "./Rating.module.scss";
 import { IconFactories } from "utils/factories";
 import { ICONS } from "utils/constants";
 import { handleVotePost } from "redux/actions/posts";
-import { ACTIONS } from "utils/constants";
+import { handleVoteComment } from "redux/actions/comments";
+import { ACTIONS, VOTE_TYPE } from "utils/constants";
 import classnames from "classnames";
 
 class Rating extends React.PureComponent {
@@ -38,7 +39,14 @@ class Rating extends React.PureComponent {
     );
   }
   render() {
-    const { votes, handleClickVote, id } = this.props;
+    const {
+      votes,
+      handleClickVote,
+      handleClickVoteComment,
+      parentId,
+      type,
+      id
+    } = this.props;
 
     return (
       <div className={style["rating"]}>
@@ -54,7 +62,13 @@ class Rating extends React.PureComponent {
             className={`${style["rating__icon"]} ${style["rating__icon--up"]}`}
             icon={ICONS.THUMBS_UP}
             onClick={() => {
-              handleClickVote(id, ACTIONS.UP_VOTE);
+              type === VOTE_TYPE.POST
+                ? handleClickVote(id, ACTIONS.UP_VOTE)
+                : handleClickVoteComment(
+                    id,
+                    parentId,
+                    ACTIONS.UP_VOTE_COMMENTS
+                  );
               this.handleSetStateUp();
             }}
           />
@@ -78,7 +92,13 @@ class Rating extends React.PureComponent {
             }`}
             icon={ICONS.THUMBS_DOWN}
             onClick={() => {
-              handleClickVote(id, ACTIONS.DOWN_VOTE);
+              type === VOTE_TYPE.POST
+                ? handleClickVote(id, ACTIONS.DOWN_VOTE)
+                : handleClickVoteComment(
+                    id,
+                    parentId,
+                    ACTIONS.DOWN_VOTE_COMMENTS
+                  );
               this.handleSetStateDown();
             }}
           />
@@ -100,7 +120,9 @@ class Rating extends React.PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleClickVote: (id, type) => dispatch(handleVotePost(id, type))
+  handleClickVote: (id, type) => dispatch(handleVotePost(id, type)),
+  handleClickVoteComment: (id, parentId, type) =>
+    dispatch(handleVoteComment(id, parentId, type))
 });
 export default connect(
   null,

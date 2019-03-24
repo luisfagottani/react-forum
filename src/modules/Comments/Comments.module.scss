@@ -69,16 +69,20 @@
     background-color: #fff;
 
     // Box Model
-    padding: 25px 20px;
+    display: flex;
 
     p {
       // Box Model
       margin: 0;
+      padding: 30px 25px;
+      width: 80%;
 
       // Typography
       font-weight: 400;
       line-height: 1.7;
       color: #6b717e;
+      word-break: break-word;
+      letter-spacing: 0.2px;
     }
   }
 }

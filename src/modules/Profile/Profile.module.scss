@@ -1,0 +1,46 @@
+.profile {
+  // Box Model
+  width: 20%;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  // Typography
+  text-align: center;
+
+  // Visual
+  border-right: 1px solid #ddd;
+
+  &__avatar {
+    // Box Model
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    // Visual
+    border-radius: 100%;
+    background-color: #ccc;
+
+    span {
+      // Box Model
+      display: block;
+
+      // Typography
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.27);
+    }
+  }
+
+  &__user {
+    // Typography
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

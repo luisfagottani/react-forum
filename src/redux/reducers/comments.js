@@ -11,6 +11,28 @@ export default function comments(state = {}, action) {
           ...action.payload.comments
         }
       };
+    case ACTIONS.UP_VOTE_COMMENTS:
+      return {
+        ...state,
+        [action.payload.parentId]: {
+          ...state[action.payload.parentId],
+          [action.payload.idComment]: {
+            ...state[action.payload.parentId][action.payload.idComment],
+            voteScore: state[action.payload.parentId][action.payload.idComment].voteScore + 1
+          },
+        }
+      };
+    case ACTIONS.DOWN_VOTE_COMMENTS:
+      return {
+        ...state,
+        [action.payload.parentId]: {
+          ...state[action.payload.parentId],
+          [action.payload.idComment]: {
+            ...state[action.payload.parentId][action.payload.idComment],
+            voteScore: state[action.payload.parentId][action.payload.idComment].voteScore - 1
+          },
+        }
+      };
     default:
       return state;
   }

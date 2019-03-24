@@ -3,6 +3,8 @@ import style from "./Post.module.scss";
 import Rating from "modules/Rating";
 import { MdAlarm } from "react-icons/md";
 import { dateToFormat } from "utils/helpers";
+import Profile from "modules/Profile";
+import { VOTE_TYPE } from "utils/constants";
 
 const Post = ({ post }) => {
   return (
@@ -15,10 +17,11 @@ const Post = ({ post }) => {
           <MdAlarm /> {dateToFormat(post)}
         </div>
         <div className={style["post__info-rating"]}>
-          <Rating id={post.id} votes={post.voteScore} />
+          <Rating id={post.id} type={VOTE_TYPE.POST} votes={post.voteScore} />
         </div>
       </div>
       <div className={style["post__content"]}>
+        <Profile name={post.author} />
         <p>{post.body}</p>
       </div>
     </section>

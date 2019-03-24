@@ -92,6 +92,7 @@ video {
   font-family: "Open Sans", sans-serif;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -106,17 +107,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -124,6 +129,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -143,7 +149,7 @@ table {
   margin: 0 auto;
   margin-top: -80px;
   margin-bottom: 100px;
-  max-width: 1200px;
+  max-width: 1300px;
   box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
   min-height: 300px;
   padding: 30px 40px 15px 40px;
