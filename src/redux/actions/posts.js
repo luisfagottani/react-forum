@@ -1,5 +1,9 @@
-import { ACTIONS } from "utils/constants";
-import { votePost } from "utils/api";
+import {
+  ACTIONS
+} from "utils/constants";
+import {
+  votePost
+} from "utils/api";
 
 export const setPosts = posts => ({
   type: ACTIONS.SET_POSTS,

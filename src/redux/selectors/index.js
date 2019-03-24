@@ -1,11 +1,23 @@
-import { getNumberOfCategories } from "./categories";
-import { getAllPosts, getNumberOfPosts, getPostById } from "./posts";
-import { getTotalCountComments } from "./comments";
+import {
+  getNumberOfCategories,
+  getAllCategories
+} from "./categories";
+import {
+  getAllPosts,
+  getNumberOfPosts,
+  getPostById
+} from "./posts";
+import {
+  getTotalCountComments,
+  getCommentsByPost
+} from "./comments";
 
 export {
   getNumberOfCategories,
   getNumberOfPosts,
   getAllPosts,
   getTotalCountComments,
-  getPostById
+  getPostById,
+  getAllCategories,
+  getCommentsByPost
 };

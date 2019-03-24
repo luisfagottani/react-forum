@@ -1,4 +1,6 @@
-import { ACTIONS } from "utils/constants";
+import {
+  ACTIONS
+} from "utils/constants";
 
 export default function posts(state = {}, action) {
   switch (action.type) {
@@ -23,6 +25,7 @@ export default function posts(state = {}, action) {
           voteScore: state[action.id].voteScore - 1
         }
       };
+
     default:
       return state;
   }

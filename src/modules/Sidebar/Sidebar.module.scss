@@ -1,0 +1,25 @@
+.sidebar {
+  // Box Model
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    // Box Model
+    margin-bottom: 40px;
+    padding: 30px;
+
+    // Visual
+    border: 1px solid #ddd;
+  }
+
+  &__title {
+    // Box Model
+    margin-bottom: 25px;
+
+    // Typography
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #364253;
+  }
+}

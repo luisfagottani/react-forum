@@ -8,9 +8,6 @@ const Menu = () => {
       <li className={style["menu__item"]}>
         <Link to="/">Home</Link>{" "}
       </li>
-      <li className={style["menu__item"]}>
-        <Link to="/dashboard">My Posts</Link>
-      </li>
       <li className={`${style["menu__item"]} ${style["menu__item--star"]}`}>
         <Link to="/new-post">New Posts</Link>
       </li>

@@ -1,6 +1,6 @@
-.post {
+.comments {
   // Box Model
-  margin-bottom: 90px;
+  margin-bottom: 40px;
 
   // Visual
   background: #f1f1f1;
@@ -37,6 +37,7 @@
 
     // Visual
     border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(221, 221, 221);

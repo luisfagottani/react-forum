@@ -6,8 +6,8 @@ const api = `${process.env.REACT_APP_API_DOMAIN}:${
 let token = localStorage.token;
 if (!token)
   token = localStorage.token = Math.random()
-    .toString(36)
-    .substr(-8);
+  .toString(36)
+  .substr(-8);
 
 const headers = {
   Accept: "application/json",
@@ -16,31 +16,46 @@ const headers = {
 };
 
 export const getAllCategories = () =>
-  fetch(`${api}/categories`, { headers })
-    .then(res => res.json())
-    .then(data => data.categories);
+  fetch(`${api}/categories`, {
+    headers
+  })
+  .then(res => res.json())
+  .then(data => data.categories);
 
 export const getAllPosts = () =>
-  fetch(`${api}/posts`, { headers })
-    .then(res => res.json())
-    .then(data =>
-      Object.values(data).reduce((totalValue, currentData) => {
-        totalValue[currentData.id] = currentData;
-        return totalValue;
-      }, {})
-    );
-
-export const getPost = postId =>
-  fetch(`${api}/posts/${postId}`, {
+  fetch(`${api}/posts`, {
     headers
-  }).then(data => console.log(data));
+  })
+  .then(res => res.json())
+  .then(data =>
+    Object.values(data).reduce((totalValue, currentData) => {
+      totalValue[currentData.id] = currentData;
+      return totalValue;
+    }, {})
+  );
+
 
 export const votePost = (id, option) =>
   fetch(`${api}/posts/${id}`, {
     headers,
     method: "POST",
-    body: JSON.stringify({ option })
+    body: JSON.stringify({
+      option
+    })
   }).then(res => res.json());
+
+export const getCommentsByPost = postId =>
+  fetch(`${api}/posts/${postId}/comments`, {
+    headers,
+  }).then(res => res.json())
+  .then(data =>
+    Object.values(data).reduce((totalValue, currentData) => {
+      totalValue[currentData.id] = currentData;
+      return totalValue;
+    }, {})
+  );
+
+
 
 export const getInitialData = () => {
   return Promise.all([getAllCategories(), getAllPosts()]).then(

@@ -1,6 +1,23 @@
-import { ACTIONS } from "utils/constants";
+import {
+  ACTIONS
+} from "utils/constants";
 
-export const totalComments = comments => ({
-  type: ACTIONS.TOTAL_COMMENTS,
-  comments
+import {
+  getCommentsByPost
+} from "utils/api"
+
+export const setCommentsPost = (comments, id) => ({
+  type: ACTIONS.SET_COMMENTS_POST,
+  payload: {
+    postId: id,
+    comments
+  }
 });
+
+
+
+export function setCommentsByPost(id) {
+  return dispatch => {
+    getCommentsByPost(id).then(comments => dispatch(setCommentsPost(comments, id)))
+  };
+}

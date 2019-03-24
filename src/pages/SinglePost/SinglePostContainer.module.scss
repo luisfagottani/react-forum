@@ -1,0 +1,17 @@
+.single-post {
+  // Box Model
+  display: flex;
+  justify-content: space-between;
+
+  &__content {
+    // Box Model
+    width: 70%;
+  }
+
+  &__sidebar {
+    // Box Model
+    width: 30%;
+    padding-left: 30px;
+    margin-bottom: 40px;
+  }
+}
