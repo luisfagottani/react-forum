@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Resume.module.scss";
+import style from "./ResumeStyle.module.scss";
 import { connect } from "react-redux";
 import {
   getNumberOfPosts,
