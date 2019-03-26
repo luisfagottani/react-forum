@@ -8,16 +8,24 @@ import {
 
 import {
   voteComment,
-  addComment
+  addComment,
+  updateCommentById,
+  deleteCommentById
 } from "utils/api";
+import {
+  refreshPostById
+} from "./posts";
 
 export const addCommentToPost = (comment) => ({
   type: ACTIONS.ADD_COMMENT,
-  payload: {
-    postId: comment.parentId,
-    comment
-  }
+  comment
 })
+
+export const delCommentById = (comment) => ({
+  type: ACTIONS.DEL_COMMENT,
+  comment
+})
+
 
 export const setCommentsPost = (comments, id) => ({
   type: ACTIONS.SET_COMMENTS_POST,
@@ -52,8 +60,6 @@ export function setCommentsByPost(id) {
 }
 
 
-
-
 export function handleVoteComment(id, parentId, type) {
   return dispatch => {
     if (type === ACTIONS.DOWN_VOTE_COMMENTS) {
@@ -66,10 +72,32 @@ export function handleVoteComment(id, parentId, type) {
 }
 
 export function handleAddComment(comment) {
-  console.log(comment)
   return dispatch => {
-    return addComment({
+    addComment({
       comment
-    }).then(comment => console.log(comment))
+    }).then(comment => {
+      dispatch(addCommentToPost(comment))
+      dispatch(refreshPostById(comment.parentId))
+    })
+  }
+}
+
+export function handleUpdateComment(comment) {
+  return dispatch => {
+    updateCommentById({
+      comment
+    })
+  }
+}
+
+
+export function deleteComment(id) {
+  return dispatch => {
+    deleteCommentById({
+      id
+    }).then(comment => {
+      dispatch(delCommentById(comment))
+      dispatch(refreshPostById(comment.parentId))
+    })
   }
 }

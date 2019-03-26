@@ -11,6 +11,23 @@ export default function comments(state = {}, action) {
           ...action.payload.comments
         }
       };
+
+    case ACTIONS.DEL_COMMENT:
+      return {
+        ...state,
+        [action.comment.parentId]: Object.values(state[action.comment.parentId]).filter(comment => comment.id !== action.comment.id)
+      }
+    case ACTIONS.ADD_COMMENT:
+      return {
+        ...state,
+        [action.comment.parentId]: {
+          ...state[action.comment.parentId],
+          [action.comment.id]: {
+            ...action.comment
+          },
+        }
+      }
+
     case ACTIONS.UP_VOTE_COMMENTS:
       return {
         ...state,

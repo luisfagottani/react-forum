@@ -11,12 +11,15 @@ import LastTopics from "modules/Sidebar/components/LastTopics/LastTopics";
 import Comments from "modules/Comments";
 import { setCommentsByPost } from "redux/actions/comments";
 import { getCommentsByPost } from "redux/selectors";
-import NewContent from "../../modules/Form/NewContent";
+import NewContent from "modules/Form/NewContent";
 import { TYPE_CONTEXT } from "utils/constants";
 
 class SinglePostContainer extends React.PureComponent {
   componentDidMount() {
-    const { setCommentsByPost, match } = this.props;
+    const { setCommentsByPost, match, post, history } = this.props;
+    if (!post) {
+      history.push("/");
+    }
     setCommentsByPost(match.params.id);
   }
   render() {

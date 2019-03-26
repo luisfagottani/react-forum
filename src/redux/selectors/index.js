@@ -5,11 +5,13 @@ import {
 import {
   getAllPosts,
   getNumberOfPosts,
-  getPostById
+  getPostById,
+  getOrderBy
 } from "./posts";
 import {
   getTotalCountComments,
-  getCommentsByPost
+  getCommentsByPost,
+  getCommentById
 } from "./comments";
 
 export {
@@ -19,5 +21,7 @@ export {
   getTotalCountComments,
   getPostById,
   getAllCategories,
-  getCommentsByPost
+  getOrderBy,
+  getCommentsByPost,
+  getCommentById
 };

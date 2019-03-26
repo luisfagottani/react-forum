@@ -13,6 +13,9 @@ const LastTopics = ({ posts }) => {
         <ul>
           {Object.values(posts)
             .slice(0, 5)
+            .sort(function(a, b) {
+              return new Date(b.timestamp) - new Date(a.timestamp);
+            })
             .map(post => (
               <li className={style["last-posts__item"]} key={post.id}>
                 <h3 className={style["last-posts__title"]}>
