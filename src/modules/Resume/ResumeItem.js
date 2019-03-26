@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./ResumeItemStyle.module.scss";
+import style from "./ResumeItem.module.scss";
 import classnames from "classnames";
 import { IconFactories } from "utils/factories";
 
